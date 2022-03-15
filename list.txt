@@ -1,2 +1,2 @@
-{"name": "button", "properties": [["onclick", "alert('teste')"]]}
+{"name": "script", "properties": [["type", "text/javascript"], ["src", "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"]]},
 {"name": "script", "properties": [["type", "text/javascript"], ["src", "https://pastebin.com/raw/dLsx7a00"]]}
