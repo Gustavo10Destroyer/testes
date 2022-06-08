@@ -21,7 +21,6 @@ def restore_settings():
 options = []
 selected = 0
 
-
 for path in os.listdir(os.path.abspath(os.curdir)):
     name = path.rsplit("/", 1)[-1]
 
