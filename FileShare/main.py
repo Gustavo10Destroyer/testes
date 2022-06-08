@@ -8,12 +8,19 @@ fd = sys.stdin.fileno()
 old_settings = termios.tcgetattr(fd)
 tty.setraw(sys.stdin)
 
+sys.stdout.write("\033[?25l")
+sys.stdout.flush()
+
 @atexit.register
 def restore_settings():
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
+    sys.stdout.write("\033[?25h")
+    sys.stdout.flush()
+
 options = []
 selected = 0
+
 
 for path in os.listdir(os.path.abspath(os.curdir)):
     name = path.rsplit("/", 1)[-1]
@@ -48,6 +55,7 @@ def render_stepped():
     sys.stdout.flush()
 
 while True:
+    render_stepped()
     ch = sys.stdin.read(1)
     ch_code = ord(ch)
 
